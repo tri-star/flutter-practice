@@ -23,6 +23,9 @@ class MenuList extends StatelessWidget {
         MenuItem(title: 'レイアウト基礎', onTap: () {
           Navigator.of(context).pushNamed('/layout-practice');
         }),
+        MenuItem(title: '状態管理: provider', onTap: () {
+          Navigator.of(context).pushNamed('/state-with-provider');
+        }),
       ]
     );
   }
@@ -46,7 +49,7 @@ class MenuItem extends StatelessWidget {
             Container(
               height: 60,
               child: Center(
-                child: Text('レイアウト基礎')),
+                child: Text(title)),
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 border: Border(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice/screens/practice_menu.dart';
 
 import 'package:flutter_practice/screens/layout_practice.dart';
+import 'package:flutter_practice/screens/state_with_provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/layout-practice': (BuildContext context) => LayoutPractice()
+        '/layout-practice': (BuildContext context) => LayoutPractice(),
+        '/state-with-provider': (BuildContext context) => StateWithProvider(),
       },
       home: PracticeMenu(),
 
