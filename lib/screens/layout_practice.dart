@@ -8,7 +8,7 @@ class LayoutPractice extends StatelessWidget {
         title: Text('レイアウト基礎'),
         ),
       body: Container(
-        child: Text('レイアウト練習')
+        child: Text('レイアウト練習用。何か試したくなったらこのページで試す')
       ),
     );
   }
