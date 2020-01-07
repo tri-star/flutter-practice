@@ -26,6 +26,9 @@ class MenuList extends StatelessWidget {
         MenuItem(title: '状態管理: InheritWidget', onTap: () {
           Navigator.of(context).pushNamed('/state-with-inherit');
         }),
+        MenuItem(title: '状態管理: provider', onTap: () {
+          Navigator.of(context).pushNamed('/state-with-provider');
+        }),
       ]
     );
   }
