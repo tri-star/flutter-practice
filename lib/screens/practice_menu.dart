@@ -29,6 +29,9 @@ class MenuList extends StatelessWidget {
         MenuItem(title: '状態管理: provider', onTap: () {
           Navigator.of(context).pushNamed('/state-with-provider');
         }),
+        MenuItem(title: 'Web API', onTap: () {
+          Navigator.of(context).pushNamed('/web-api');
+        }),
       ]
     );
   }
