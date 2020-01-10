@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/screens/form.dart';
 import 'package:flutter_practice/screens/practice_menu.dart';
-
 import 'package:flutter_practice/screens/layout_practice.dart';
 import 'package:flutter_practice/screens/state_with_inherit.dart';
 import 'package:flutter_practice/screens/state_with_provider/state_with_provider.dart';
@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/state-with-inherit': (BuildContext context) => StateWithInherit(),
         '/state-with-provider': (BuildContext context) => StateWithProvider(),
         '/web-api': (BuildContext context) => WebApi(),
+        '/form': (BuildContext context) => FormScreen(),
       },
       home: PracticeMenu(),
 

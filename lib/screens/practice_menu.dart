@@ -32,6 +32,9 @@ class MenuList extends StatelessWidget {
         MenuItem(title: 'Web API', onTap: () {
           Navigator.of(context).pushNamed('/web-api');
         }),
+        MenuItem(title: 'Form', onTap: () {
+          Navigator.of(context).pushNamed('/form');
+        }),
       ]
     );
   }
