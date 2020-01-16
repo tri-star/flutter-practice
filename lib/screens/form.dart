@@ -21,6 +21,15 @@ class UserRegistFormState extends State<UserRegistForm> {
 
   final _formKey = GlobalKey<FormState>();
 
+  String _text;
+
+  @override
+  void initState()
+  {
+    super.initState();
+    this._text = '';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -31,6 +40,7 @@ class UserRegistFormState extends State<UserRegistForm> {
             decoration: InputDecoration(
               labelText: 'Login ID',
             ),
+            onChanged: (String value) => _text = value,
           ),
           TextFormField(
             decoration: InputDecoration(
@@ -48,7 +58,7 @@ class UserRegistFormState extends State<UserRegistForm> {
               child: Text('Submit'),
               onPressed: () {
                 Scaffold.of(context).showSnackBar(SnackBar(
-                  content: Text('Submitted')
+                  content: Text('Login ID: ' + _text)
                 ));
               },
             ),
