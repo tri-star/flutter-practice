@@ -43,6 +43,11 @@ class MenuList extends StatelessWidget {
           onTap: () {
             Navigator.of(context).pushNamed('/form_with_model');
           }),
+      MenuItem(
+          title: 'Firestore フォーム',
+          onTap: () {
+            Navigator.of(context).pushNamed('/firestore');
+          }),
     ]);
   }
 }
