@@ -1,12 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'form_model.dart';
 
 class FireStoreForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text('Firestore')),
-        body: Column(children: [FormBody()]));
+    return MultiProvider(providers: [
+      ChangeNotifierProvider<FormViewModel>(create: (_) => FormViewModel())
+    ], child: Column(children: [FormBody()]));
   }
 }
 
@@ -17,37 +19,84 @@ class FormBody extends StatefulWidget {
 
 class FormBodyState extends State<FormBody> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController _inputController = TextEditingController();
 
-  String title;
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _memoController = TextEditingController();
+  final TextEditingController _urlController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Form(
         key: _formKey,
-        child: Column(
-          children: [
-            TextFormField(
-                controller: _inputController,
-                decoration: InputDecoration(labelText: 'title'),
-                onChanged: (value) => title = value),
-            RaisedButton(
-                onPressed: () async {
-                  CollectionReference messages =
-                      Firestore.instance.collection('messages');
-                  messages.add(<String, dynamic>{'message': title});
-
-                  Scaffold.of(context)
-                      .showSnackBar(SnackBar(content: Text('registered')));
-                },
-                child: Text('save')),
-          ],
+        child: Consumer<FormViewModel>(
+          builder: (BuildContext context, FormViewModel model, Widget _) {
+            return Column(
+              children: [
+                TextFormField(
+                    controller: _nameController,
+                    decoration: InputDecoration(labelText: 'イベント名'),
+                    onChanged: (value) => model.name = value,
+                    validator: (value) => model.validateName(value)),
+                Row(children: [
+                  Expanded(child: Text('日付: ' + model.formattedDate)),
+                  IconButton(
+                      icon: Icon(Icons.calendar_today),
+                      onPressed: () {
+                        showDatePickerPopup(context);
+                      })
+                ]),
+                TextFormField(
+                    controller: _urlController,
+                    decoration: InputDecoration(labelText: 'URL'),
+                    keyboardType: TextInputType.url,
+                    onChanged: (value) => model.url = value),
+                TextFormField(
+                    controller: _memoController,
+                    decoration: InputDecoration(labelText: 'メモ'),
+                    onChanged: (value) => model.memo = value),
+                RaisedButton(
+                    onPressed: () {
+                      submitForm(model);
+                    },
+                    child: Text('save')),
+              ],
+            );
+          },
         ));
+  }
+
+  void showDatePickerPopup(BuildContext context) async {
+    final selectedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(DateTime.now().year),
+        lastDate: DateTime(DateTime.now().year + 2));
+
+    if (selectedDate != null) {
+      var model = Provider.of<FormViewModel>(context, listen: false);
+      model.date = selectedDate;
+    }
+  }
+
+  void submitForm(FormViewModel model) {
+    if (!_formKey.currentState.validate()) {
+      return;
+    }
+    model.register();
+    clearForm(model);
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text('registered')));
+  }
+
+  void clearForm(FormViewModel model) {
+    _nameController.clear();
+    _memoController.clear();
+    _urlController.clear();
+
+    model.clear();
   }
 
   @override
   void dispose() {
-    _inputController.dispose();
     super.dispose();
   }
 }
