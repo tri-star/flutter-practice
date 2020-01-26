@@ -6,11 +6,9 @@ import 'form_model.dart';
 class FireStoreForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text('Firestore')),
-        body: MultiProvider(providers: [
-          ChangeNotifierProvider<FormViewModel>(create: (_) => FormViewModel())
-        ], child: Column(children: [FormBody()])));
+    return MultiProvider(providers: [
+      ChangeNotifierProvider<FormViewModel>(create: (_) => FormViewModel())
+    ], child: Column(children: [FormBody()]));
   }
 }
 

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice/screens/firestore/form.dart';
+import 'package:flutter_practice/screens/firestore/index.dart';
 import 'package:flutter_practice/screens/form.dart';
 import 'package:flutter_practice/screens/form_with_model/form.dart';
 import 'package:flutter_practice/screens/layout_practice.dart';
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
         '/web-api': (BuildContext context) => WebApi(),
         '/form': (BuildContext context) => FormScreen(),
         '/form_with_model': (BuildContext context) => FormWithModelScreen(),
-        '/firestore': (BuildContext context) => FireStoreForm(),
+        '/firestore': (BuildContext context) => IndexPageTabView(),
       },
       home: PracticeMenu(),
     );
