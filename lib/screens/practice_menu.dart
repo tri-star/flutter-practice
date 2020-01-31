@@ -48,6 +48,11 @@ class MenuList extends StatelessWidget {
           onTap: () {
             Navigator.of(context).pushNamed('/firestore');
           }),
+      MenuItem(
+          title: 'Firebase: auth',
+          onTap: () {
+            Navigator.of(context).pushNamed('/firebase_auth');
+          }),
     ]);
   }
 }

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/screens/auth/index.dart';
 import 'package:flutter_practice/screens/firestore/index.dart';
 import 'package:flutter_practice/screens/form.dart';
 import 'package:flutter_practice/screens/form_with_model/form.dart';
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
         '/form': (BuildContext context) => FormScreen(),
         '/form_with_model': (BuildContext context) => FormWithModelScreen(),
         '/firestore': (BuildContext context) => IndexPageTabView(),
+        '/firebase_auth': (BuildContext context) => AuthIndex(),
       },
       home: PracticeMenu(),
     );
