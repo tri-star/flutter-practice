@@ -53,6 +53,11 @@ class MenuList extends StatelessWidget {
           onTap: () {
             Navigator.of(context).pushNamed('/firebase_auth');
           }),
+      MenuItem(
+          title: 'AnimatedSwitcher',
+          onTap: () {
+            Navigator.of(context).pushNamed('/animated_switcher');
+          }),
     ]);
   }
 }
