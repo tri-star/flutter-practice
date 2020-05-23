@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>918322228342-0evr4bg9757r3h5h1r22f0hkre20u27c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.918322228342-0evr4bg9757r3h5h1r22f0hkre20u27c</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>918322228342-a25kmv9hq4u8nlbbn0jk10ipbaqj9vis.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBSVk_JURs-qLmQRsj1nsxE1Art4VD4-Co</string>
+	<key>GCM_SENDER_ID</key>
+	<string>918322228342</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>net.urban-theory.flutter-practice</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-practice-7ee52</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-practice-7ee52.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:918322228342:ios:52c3baadf84b11ce580357</string>
+	<key>DATABASE_URL</key>
+	<string>https://flutter-practice-7ee52.firebaseio.com</string>
+</dict>
+</plist>
