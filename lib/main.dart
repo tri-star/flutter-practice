@@ -13,6 +13,7 @@ import 'package:flutter_practice/screens/practice_menu.dart';
 import 'package:flutter_practice/screens/state_with_inherit.dart';
 import 'package:flutter_practice/screens/state_with_provider/state_with_provider.dart';
 import 'package:flutter_practice/screens/web_api.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 Future<FirebaseApp> initFireBaseApp() {
   return FirebaseApp.configure(
@@ -27,6 +28,8 @@ Future<FirebaseApp> initFireBaseApp() {
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Crashlytics.instance.enableInDevMode = true;
+  FlutterError.onError = Crashlytics.instance.recordFlutterError;
   FirebaseApp.configure(
       name: 'flutter_practice',
       options: const FirebaseOptions(
