@@ -59,7 +59,7 @@ jobs:
           FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
-          APPLE_APP_ID: "net.urban-theory.flutter-template"
+          APPLE_APP_ID: "net.urban-theory.flutter-practice"
           APPLE_TEAM_ID: "F946L3T4HH"
         run: |
           cd ios
