@@ -7,7 +7,8 @@ import './config.dart';
 import './my_app.dart';
 
 void main() {
-  Config config = Config(googleAppId: '1:918322228342:android:f246753ffc9f773b580357');
+
+  Config config = Config(googleAppId: '1:918322228342:ios:52c3baadf84b11ce580357');
 
   WidgetsFlutterBinding.ensureInitialized();
   Crashlytics.instance.enableInDevMode = true;
