@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 import './config.dart';
 import './my_app.dart';
@@ -11,8 +10,6 @@ void main() {
   Config config = Config(googleAppId: '1:918322228342:ios:52c3baadf84b11ce580357');
 
   WidgetsFlutterBinding.ensureInitialized();
-  Crashlytics.instance.enableInDevMode = true;
-  FlutterError.onError = Crashlytics.instance.recordFlutterError;
   FirebaseApp.configure(
       name: 'flutter_practice',
       options: FirebaseOptions(

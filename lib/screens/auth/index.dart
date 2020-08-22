@@ -29,7 +29,7 @@ class AuthIndexState extends State<AuthIndex> {
   }
 
   void _onLoginClick(BuildContext context) async {
-    final FirebaseUser user = await _handleSignin();
+    final User user = await _handleSignin();
     if (user == null) {
       Scaffold.of(context)
           .showSnackBar(SnackBar(content: Text('Login failed.')));
@@ -41,7 +41,7 @@ class AuthIndexState extends State<AuthIndex> {
     }));
   }
 
-  Future<FirebaseUser> _handleSignin() async {
+  Future<User> _handleSignin() async {
     GoogleSignInAccount currentUser = _signin.currentUser;
 
     try {
@@ -56,10 +56,10 @@ class AuthIndexState extends State<AuthIndex> {
       }
 
       GoogleSignInAuthentication googleAuth = await currentUser.authentication;
-      final AuthCredential credential = GoogleAuthProvider.getCredential(
+      final AuthCredential credential = GoogleAuthProvider.credential(
           accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
-      final FirebaseUser firebaseUser =
+      final User firebaseUser =
           (await _auth.signInWithCredential(credential)).user;
 
       return firebaseUser;

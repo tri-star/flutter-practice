@@ -7,12 +7,12 @@ import 'package:intl/intl.dart';
 class ListViewModel {
   Future<List<Schedule>> getList() async {
     QuerySnapshot schedules =
-        await Firestore.instance.collection('schedules').getDocuments();
+        await FirebaseFirestore.instance.collection('schedules').get();
 
     List<Schedule> list =
-        schedules.documents.map<Schedule>((DocumentSnapshot snapshot) {
+        schedules.docs.map<Schedule>((QueryDocumentSnapshot snapshot) {
       return Schedule.fromMap(
-          {...snapshot.data, 'date': snapshot.data['date']?.toDate()});
+          {...snapshot.data(), 'date': snapshot.data()['date']?.toDate()});
     }).toList();
 
     return list;
