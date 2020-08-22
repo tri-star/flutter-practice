@@ -1,28 +1,25 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/material.dart';
 
 import './config.dart';
 import './my_app.dart';
 
 void main() {
-  Config config = Config(googleAppId: '1:918322228342:android:f246753ffc9f773b580357');
+  Config config =
+      Config(googleAppId: '1:918322228342:android:f246753ffc9f773b580357');
 
   WidgetsFlutterBinding.ensureInitialized();
   Crashlytics.instance.enableInDevMode = true;
   FlutterError.onError = Crashlytics.instance.recordFlutterError;
-  FirebaseApp.configure(
+  Firebase.initializeApp(
       name: 'flutter_practice',
       options: FirebaseOptions(
-        googleAppID: config.googleAppId,
-        gcmSenderID: '918322228342',
+        appId: config.googleAppId,
+        messagingSenderId: '918322228342',
         apiKey: 'AIzaSyAHmIXAE7lqqmeI0uTGEVxvDGIFT81lSMw',
-        projectID: 'flutter-practice-7ee52',
+        projectId: 'flutter-practice-7ee52',
       )).then((FirebaseApp app) {
-    Firestore(app: app);
-    return app;
-  }).then((FirebaseApp app) {
     runApp(MyApp(app: app));
   });
 }
